@@ -4,18 +4,53 @@
   "main": "index.js",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "android": "DARK_MODE=media expo start --android",
+    "ios": "DARK_MODE=media expo start --ios",
+    "web": "DARK_MODE=media expo start --web"
   },
   "dependencies": {
-    "expo": "~52.0.40",
-    "expo-status-bar": "~2.0.1",
-    "react": "18.3.1",
-    "react-native": "0.76.7"
+    "@expo/vector-icons": "^14.1.0",
+    "@gluestack-ui/icon": "^0.1.26",
+    "@gluestack-ui/nativewind-utils": "^1.0.26",
+    "@gluestack-ui/overlay": "^0.1.22",
+    "@gluestack-ui/toast": "^1.0.9",
+    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-community/masked-view": "^0.1.11",
+    "@react-navigation/bottom-tabs": "^7.3.2",
+    "@react-navigation/native": "^7.0.18",
+    "@react-navigation/native-stack": "^7.3.2",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "expo": "~53.0.7",
+    "expo-image-picker": "^16.1.4",
+    "expo-status-bar": "~2.2.3",
+    "formik": "^2.4.6",
+    "jwt-decode": "^4.0.0",
+    "metro": "^0.82.0",
+    "metro-config": "^0.81.0",
+    "metro-core": "^0.81.0",
+    "metro-resolver": "^0.81.0",
+    "metro-runtime": "^0.81.0",
+    "metro-source-map": "^0.81.0",
+    "native-base": "^3.4.28",
+    "nativewind": "^4.1.23",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-css-interop": "^0.1.22",
+    "react-native-gesture-handler": "~2.24.0",
+    "react-native-reanimated": "~3.17.4",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "~4.10.0",
+    "react-native-svg": "15.11.2",
+    "react-native-vector-icons": "^10.2.0",
+    "socket.io-client": "^4.8.1",
+    "tailwindcss": "^3.4.17",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@types/react": "~19.0.10",
+    "jscodeshift": "^0.15.2"
   },
   "private": true
 }

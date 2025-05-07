@@ -1,12 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "@/global.css";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider/index";
+import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { HandlerNavigation } from "./src/navigations";
+import { NativeBaseProvider } from "native-base";
+import { AuthProvider } from "./src/contexts";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <NativeBaseProvider>
+        <GluestackUIProvider mode="light">
+          <AuthProvider>
+            <View style={styles.container}>
+            <HandlerNavigation />
+              <StatusBar style="auto" />
+            </View>
+          </AuthProvider>
+        </GluestackUIProvider>
+      </NativeBaseProvider>
+    </NavigationContainer>
   );
 }
 
@@ -14,7 +28,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
   },
 });
