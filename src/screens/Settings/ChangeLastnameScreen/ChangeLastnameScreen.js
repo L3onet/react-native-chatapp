@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { Input, Button } from "native-base";
+import { View, KeyboardAvoidingView, Platform } from 'react-native';
+import { Input, InputField, Button, Text } from "@gluestack-ui/themed";
 import { initialValues, validationSchema } from './ChangeLastnameScreen.form';
 import { useFormik } from 'formik';
 import { User } from "../../../api";
@@ -23,7 +23,6 @@ export function ChangeLastnameScreen() {
                 await userController.updateUser(accessToken, dataUser);
                 updateUser("lastname", formValue.lastname);
                 navigation.goBack();
-
             } catch (error) {
                 console.error(error);
             }
@@ -31,23 +30,25 @@ export function ChangeLastnameScreen() {
     });
 
     return (
-        <View>
-            <Input
-                placeholder="Apellidos"
-                variant="unstyled"
-                autoFocus
-                value={formik.values.lastname}
-                onChangeText={(text) => formik.setFieldValue("lastname", text)}
-                style={[styles.input, formik.errors.lastname && styles.inputError]}
-            />
-            <Button
-                style={styles.btn}
-                onPress={formik.handleSubmit}
-                isLoading={formik.isSubmitting}
-            >
-                Cambiar
-            </Button>
-
-        </View>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{ flex: 1, justifyContent: "center" }}
+        >
+            <View style={styles.content}>
+                <Input>
+                    <InputField
+                        placeholder="Apellidos"
+                        autoFocus
+                        value={formik.values.lastname}
+                        onChangeText={(text) => formik.setFieldValue("lastname", text)}
+                        isInvalid={!!formik.errors.lastname}
+                        color="$white"
+                    />
+                </Input>
+                <Button mt="$4" onPress={formik.handleSubmit} isDisabled={formik.isSubmitting}>
+                    <Text color="$white">Cambiar</Text>
+                </Button>
+            </View>
+        </KeyboardAvoidingView>
     )
 }

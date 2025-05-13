@@ -1,1 +1,1 @@
-export * from "../ChangeFirstnameScreen";
+export * from "./ChangeFirstnameScreen";

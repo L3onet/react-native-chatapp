@@ -10,25 +10,28 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
+    "@gluestack-style/react": "^1.0.57",
+    "@gluestack-ui/config": "^1.1.20",
     "@gluestack-ui/icon": "^0.1.26",
     "@gluestack-ui/nativewind-utils": "^1.0.26",
     "@gluestack-ui/overlay": "^0.1.22",
+    "@gluestack-ui/themed": "^1.1.73",
     "@gluestack-ui/toast": "^1.0.9",
     "@react-native-async-storage/async-storage": "2.1.2",
     "@react-native-community/masked-view": "^0.1.11",
-    "@react-navigation/bottom-tabs": "^7.3.2",
-    "@react-navigation/native": "^7.0.18",
-    "@react-navigation/native-stack": "^7.3.2",
+    "@react-navigation/bottom-tabs": "^7.2.1",
+    "@react-navigation/native": "^7.0.15",
+    "@react-navigation/native-stack": "^7.2.1",
     "babel-plugin-module-resolver": "^5.0.2",
-    "expo": "~53.0.7",
+    "expo": "53.0.9",
     "expo-image-picker": "^16.1.4",
     "expo-status-bar": "~2.2.3",
     "formik": "^2.4.6",
     "jwt-decode": "^4.0.0",
     "metro": "^0.82.0",
-    "metro-config": "^0.81.0",
+    "metro-config": "^0.82.0",
     "metro-core": "^0.81.0",
-    "metro-resolver": "^0.81.0",
+    "metro-resolver": "^0.82.0",
     "metro-runtime": "^0.81.0",
     "metro-source-map": "^0.81.0",
     "native-base": "^3.4.28",
@@ -49,8 +52,54 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@react-native-community/cli": "latest",
     "@types/react": "~19.0.10",
     "jscodeshift": "^0.15.2"
   },
-  "private": true
+  "private": true,
+  "doctor": {
+    "reactNativeDirectoryCheck": {
+      "exclude": [
+        "jwt-decode",
+        "@gluestack-ui/icon",
+        "@gluestack-ui/nativewind-utils",
+        "@gluestack-ui/overlay",
+        "@gluestack-ui/toast",
+        "@react-native-community/masked-view",
+        "metro",
+        "metro-config",
+        "metro-core",
+        "metro-resolver",
+        "metro-runtime",
+        "metro-source-map",
+        "react-native-css-interop",
+        "react-native-vector-icons",
+        "socket.io-client"
+      ]
+    }
+  },
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "exclude": [
+          "jwt-decode",
+          "@gluestack-ui/icon",
+          "@gluestack-ui/nativewind-utils",
+          "@gluestack-ui/overlay",
+          "@gluestack-ui/toast",
+          "@react-native-community/masked-view",
+          "metro",
+          "metro-config",
+          "metro-core",
+          "metro-resolver",
+          "metro-runtime",
+          "metro-source-map",
+          "react-native-css-interop",
+          "react-native-vector-icons",
+          "socket.io-client"
+        ],
+        "listUnknownPackages": false
+      }
+    }
+  }
 }

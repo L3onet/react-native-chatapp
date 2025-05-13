@@ -1,6 +1,6 @@
 import React from 'react';
-import { View} from 'react-native';
-import { Input, Button } from "native-base";
+import { View, KeyboardAvoidingView, Platform } from 'react-native';
+import { Input, InputField, Button, Text } from "@gluestack-ui/themed";
 import { initialValues, validationSchema } from "./ChangeFirstnameScreen.form";
 import { useFormik } from "formik";
 import { User } from "../../../api";
@@ -29,22 +29,25 @@ export function ChangeFirstnameScreen() {
         },
     });
     return (
-        <View style={styles.content}>
-            <Input
-                placeholder="Nombre"
-                variant="unstyled"
-                autoFocus
-                value={formik.values.firstname}
-                onChangeText={(text) => formik.setFieldValue("firstname", text)}
-                style={[styles.input, formik.errors.firstname && styles.inputError]}
-            />
-            <Button
-                style={styles.btn}
-                onPress={formik.handleSubmit}
-                isLoading={formik.isSubmitting}
-            >
-                Cambiar
-            </Button>
-    </View>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{ flex: 1, justifyContent: "center" }}
+        >
+            <View style={styles.content}>
+                <Input>
+                    <InputField
+                        placeholder="Nombre"
+                        autoFocus
+                        value={formik.values.firstname}
+                        onChangeText={(text) => formik.setFieldValue("firstname", text)}
+                        isInvalid={!!formik.errors.firstname}
+                        color="$white"
+                    />
+                </Input>
+                <Button mt="$4" onPress={formik.handleSubmit} isDisabled={formik.isSubmitting}>
+                    <Text color="$white">Cambiar</Text>
+                </Button>
+            </View>
+        </KeyboardAvoidingView>
     )
 }
